@@ -41,6 +41,7 @@
 		0C548E5A2D05E600009F7152 /* NameEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C548E532D05E600009F7152 /* NameEntity+CoreDataProperties.swift */; };
 		0C548E5B2D05E600009F7152 /* FlagsEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C548E502D05E600009F7152 /* FlagsEntity+CoreDataClass.swift */; };
 		0C548E602D074054009F7152 /* CountryMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C548E5F2D074054009F7152 /* CountryMapView.swift */; };
+		0C548E632D08BCBF009F7152 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0C548E622D08BCBF009F7152 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C548E632D08BCBF009F7152 /* Kingfisher in Frameworks */,
 				0C548DDA2D026C85009F7152 /* CombineExt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +352,7 @@
 			name = Guidebook;
 			packageProductDependencies = (
 				0C548DD92D026C85009F7152 /* CombineExt */,
+				0C548E622D08BCBF009F7152 /* Kingfisher */,
 			);
 			productName = Guidebook;
 			productReference = 0C548D5A2D01E309009F7152 /* Guidebook.app */;
@@ -381,6 +384,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				0C548DD82D026C85009F7152 /* XCRemoteSwiftPackageReference "CombineExt" */,
+				0C548E612D08BCBF009F7152 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0C548D5B2D01E309009F7152 /* Products */;
@@ -665,6 +669,14 @@
 				minimumVersion = 1.8.1;
 			};
 		};
+		0C548E612D08BCBF009F7152 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -672,6 +684,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0C548DD82D026C85009F7152 /* XCRemoteSwiftPackageReference "CombineExt" */;
 			productName = CombineExt;
+		};
+		0C548E622D08BCBF009F7152 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C548E612D08BCBF009F7152 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 

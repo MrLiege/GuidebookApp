@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct SelectedCountryView: View {
     @StateObject private var viewModel: SelectedCountryViewModel
@@ -64,25 +65,17 @@ struct SelectedCountryView: View {
 
 private extension SelectedCountryView {
     var flagImageView: some View {
-        AsyncImage(url: URL(string: viewModel.country.flags.png)) { phase in
-            switch phase {
-            case .empty:
+        KFImage(URL(string: viewModel.country.flags.png))
+            .placeholder {
                 ProgressView()
-            case .success(let image):
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(20)
-            case .failure:
-                Image(systemName: "xmark.octagon.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(.red)
-                Text("Failed to load image")
-            @unknown default:
-                EmptyView()
             }
-        }
+            .cancelOnDisappear(true)
+            .onFailureImage(
+                UIImage(systemName: "xmark.octagon.fill")?.withRenderingMode(.alwaysOriginal).withTintColor(.red)
+            )
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .cornerRadius(20)
     }
     
     private var infoCountryView: some View {
