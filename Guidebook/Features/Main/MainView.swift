@@ -22,6 +22,13 @@ private extension MainView {
         NavigationStack(path: $navPath) {
             VStack {
                 CountryTableView(viewModel: viewModel, navPath: $navPath)
+                    .alert(isPresented: $viewModel.output.showErrorAlert) {
+                        Alert(
+                            title: Text("Error"),
+                            message: Text(viewModel.output.errorMessage ?? "Unknown error"),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(LinearGradient.darkSkyGradient().ignoresSafeArea())

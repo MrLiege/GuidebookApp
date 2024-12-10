@@ -52,17 +52,20 @@ final class MainViewModel: ObservableObject {
                         self?.fetchCountriesWithRetry(retryCount: retryCount - 1)
                     } else {
                         self?.output.errorMessage = "No countries found after retries."
+                        self?.output.showErrorAlert = true
                     }
                 case .failure(let error):
                     if retryCount > 0 {
                         self?.fetchCountriesWithRetry(retryCount: retryCount - 1)
                     } else {
                         self?.output.errorMessage = "Failed to fetch countries: \(error.rawValue)"
+                        self?.output.showErrorAlert = true
                     }
                 }
             }
         }
     }
+
     
     // MARK: - Search Country
     func searchBind() {
@@ -112,5 +115,6 @@ extension MainViewModel {
         var model: [Country] = [.empty]
         var errorMessage: String?
         var searchText: String = ""
+        var showErrorAlert = false
     }
 }
